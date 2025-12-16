@@ -89,6 +89,11 @@ p {
   margin-bottom: 20px;
 }
 
+.favicon {
+  width: 48px;
+  height: 48px;
+}
+
 /* =================
     Avatar style
    ================= */
@@ -235,9 +240,39 @@ p {
   color: #9480e4;
 }
 
-/* =================
-    Form
-   ================= */
+/*Upload*/
+
+#file-upload {
+  display: none;
+}
+
+.upload-container {
+  margin-bottom: 30px;
+}
+
+.upload-label {
+  background: #f0f0f0;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px dashed #9480e4;
+  padding: 15px 40px;
+  transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+  background: #9480e4;
+  color: white;
+  border-style: solid;
+}
+
+/* Footer*/
+.site-footer {
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  letter-spacing: 1px;
+}
 
 /* =================
     Media queries 

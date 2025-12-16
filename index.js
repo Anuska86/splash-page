@@ -58,3 +58,39 @@ resetBtn.addEventListener("click", () => {
     avatarPreview.style.transform = "scale(1)";
   }, 150);
 });
+
+/*Upload*/
+
+const fileUpload = document.getElementById("file-upload");
+
+fileUpload.addEventListener("change", function (e) {
+  if (e.target.files && e.target.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      avatarPreview.src = e.target.result;
+    };
+
+    reader.readAsDataURL(e.target.files[0]);
+  }
+});
+
+downloadBtn.addEventListener("click", () => {
+  const originalText = downloadBtn.innerText;
+  downloadBtn.innerText = "Capturing...";
+  downloadBtn.style.opacity = "0.7";
+
+  html2canvas(avatarPreview, {
+    backgroundColor: null,
+    useCORS: true,
+    scale: 2,
+  }).then((canvas) => {
+    const link = document.createElement("a");
+    link.download = "my-iconic-avatar.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+
+    downloadBtn.innerText = originalText;
+    downloadBtn.style.opacity = "1";
+  });
+});
