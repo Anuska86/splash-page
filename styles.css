@@ -35,11 +35,10 @@ h1 {
    ================= */
 
 .intro {
-  padding: 60px 20px;
-  text-align: center;
-  color: #fff;
+  padding: 80px 20px 120px;
   background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
-  margin-bottom: -50px;
+  clip-path: ellipse(150% 100% at 50% 0%);
+  margin-bottom: -80px;
 }
 
 /* ====================
@@ -107,6 +106,12 @@ p {
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.img-main:hover {
+  transform: scale(1.02) rotate(1deg);
+  filter: brightness(1.1);
+  cursor: crosshair;
+}
+
 /* --- THE VIBES --- */
 
 /* Professional */
@@ -169,7 +174,8 @@ p {
   margin: 20px 0;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .style-btn {
@@ -186,6 +192,13 @@ p {
   border-color: #9480e4;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(148, 128, 228, 0.15);
+}
+
+.style-btn.active {
+  background: #9480e4;
+  color: white;
+  border-color: #6e45e2;
+  box-shadow: 0 4px 12px rgba(110, 69, 226, 0.3);
 }
 
 /*Download button*/
@@ -229,3 +242,14 @@ p {
 /* =================
     Media queries 
    ================= */
+
+@media (max-width: 600px) {
+  .style-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  .img-main {
+    width: 200px;
+    height: 200px;
+  }
+}

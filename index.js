@@ -6,6 +6,10 @@ styleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedStyle = button.getAttribute("data-style");
 
+    styleButtons.forEach((btn) => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
     const classes = avatarPreview.className
       .split(" ")
       .filter((c) => !c.startsWith("style-"));
