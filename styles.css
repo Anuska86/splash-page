@@ -127,8 +127,9 @@ p {
 
 /* Funny*/
 .style-funny {
-  background: radial-gradient(circle, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-  box-shadow: 0 10px 20px rgba(255, 154, 158, 0.4);
+  background: radial-gradient(circle, #ff00ff, #ffea00);
+  box-shadow: 10px 10px 0px #404040;
+  border: 6px solid #404040;
 }
 
 /* Cyber */
