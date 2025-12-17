@@ -101,14 +101,13 @@ p {
 /*Base image style*/
 
 .img-main {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
   padding: 8px;
-  border: 8px solid #fff;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
 }
 
 .img-main:hover {
@@ -117,12 +116,23 @@ p {
   cursor: crosshair;
 }
 
+#avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 /* --- THE VIBES --- */
 
 /* Professional */
 .style-professional {
   background: linear-gradient(135deg, #2c3e50, #4ca1af);
   box-shadow: 0 10px 20px rgba(44, 62, 80, 0.3);
+  border-radius: 50%;
 }
 
 /* Funny*/
@@ -156,18 +166,34 @@ p {
   position: relative;
   border: 8px solid #ffb7b2;
   box-shadow: 0 10px 25px rgba(255, 183, 178, 0.3);
+  overflow: visible !important;
 }
+/* Left Ear */
 
 .style-cat::before {
   content: "";
   position: absolute;
-  top: -12px;
+  top: -15px;
   left: 50px;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: #ffb7b2;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  transform: rotate(-15deg);
+  transform: rotate(-20deg);
+  z-index: -1;
+}
+
+/* Right Ear */
+.style-cat::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  background-color: #ffb7b2;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(20deg);
   z-index: -1;
 }
 

@@ -1,4 +1,5 @@
 const avatarPreview = document.getElementById("avatar-preview");
+const avatarWrapper = document.getElementById("avatar-wrapper");
 const styleButtons = document.querySelectorAll(".style-btn");
 const downloadBtn = document.getElementById("download-btn");
 const resetBtn = document.getElementById("reset-btn");
@@ -10,12 +11,12 @@ styleButtons.forEach((button) => {
     styleButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
 
-    const classes = avatarPreview.className
+    const classes = avatarWrapper.className
       .split(" ")
       .filter((c) => !c.startsWith("style-"));
-    avatarPreview.className = classes.join(" ").trim();
+    avatarWrapper.className = classes.join(" ").trim();
 
-    avatarPreview.classList.add(selectedStyle);
+    avatarWrapper.classList.add(selectedStyle);
 
     if (selectedStyle === "style-monet") {
       avatarPreview.style.filter =
@@ -42,36 +43,21 @@ styleButtons.forEach((button) => {
   });
 });
 
-//Download the new avatar
-downloadBtn.addEventListener("click", () => {
-  const avatarContainer = document.getElementById("avatar-preview");
-
-  html2canvas(avatarContainer, {
-    backgroundColor: null,
-    useCORS: true,
-  }).then((canvas) => {
-    const link = document.createElement("a");
-    link.download = "my-iconic-avatar.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-  });
-});
-
 //Reset button
 
 resetBtn.addEventListener("click", () => {
-  const classes = avatarPreview.className
+  const wrapperClasses = avatarWrapper.className
     .split(" ")
     .filter((c) => !c.startsWith("style-"));
-  avatarPreview.className = classes.join(" ").trim();
+  avatarWrapper.className = wrapperClasses.join(" ").trim();
+
+  avatarPreview.style.filter = "none";
 
   styleButtons.forEach((btn) => btn.classList.remove("active"));
 
-  avatarPreview.style.filter = "none";
-  avatarPreview.style.transform = "scale(0.95)";
-
+  avatarWrapper.style.transform = "scale(0.95)";
   setTimeout(() => {
-    avatarPreview.style.transform = "scale(1)";
+    avatarWrapper.style.transform = "scale(1)";
   }, 150);
 });
 
@@ -91,12 +77,12 @@ fileUpload.addEventListener("change", function (e) {
   }
 });
 
+//Download the new avatar
 downloadBtn.addEventListener("click", () => {
   const originalText = downloadBtn.innerText;
   downloadBtn.innerText = "Capturing...";
-  downloadBtn.style.opacity = "0.7";
 
-  html2canvas(avatarPreview, {
+  html2canvas(avatarWrapper, {
     backgroundColor: null,
     useCORS: true,
     scale: 2,
@@ -105,8 +91,6 @@ downloadBtn.addEventListener("click", () => {
     link.download = "my-iconic-avatar.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
-
     downloadBtn.innerText = originalText;
-    downloadBtn.style.opacity = "1";
   });
 });
