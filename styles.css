@@ -196,13 +196,13 @@ p {
 .style-cat::before {
   content: "";
   position: absolute;
-  top: -15px;
-  left: 15%;
+  top: -20px;
+  left: 25%;
   width: 60px;
   height: 60px;
   background-color: #ffb7b2;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  transform: rotate(-20deg);
+  transform: translateX(-50%) rotate(-20deg);
   z-index: -1;
 }
 
@@ -210,13 +210,13 @@ p {
 .style-cat::after {
   content: "";
   position: absolute;
-  top: -15px;
-  right: 15%;
+  top: -20px;
+  right: 25%;
   width: 60px;
   height: 60px;
   background-color: #ffb7b2;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  transform: rotate(20deg);
+  transform: translateX(50%) rotate(20deg);
   z-index: -1;
 }
 
@@ -314,13 +314,18 @@ p {
 }
 
 .style-btn {
+  display: inline-block;
+  box-sizing: border-box;
   border: 2px solid #eee;
-  padding: 12px 24px;
+  padding: 15px 30px;
   border-radius: 12px;
   font-size: 0.9rem;
   color: #555;
   background: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  vertical-align: middle;
 }
 
 .style-btn:hover {
@@ -340,11 +345,15 @@ p {
 
 .action-container {
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .style-btn.download {
   background: linear-gradient(135deg, #9480e4 0%, #7a65cf 100%);
-  border: none;
+  border: 2px solid transparent;
   color: white;
   border-radius: 12px;
 }
@@ -361,7 +370,6 @@ p {
   color: #404040;
   border: 2px solid #ddd;
   padding: 15px 30px;
-  margin-left: 10px;
 }
 
 .style-btn.reset:hover {
